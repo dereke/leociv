@@ -6,6 +6,13 @@ class Resources
     @production = 0
     @trade = 0
   end
+
+  def print
+    puts "Gold: #{gold}"
+    puts "Trade: #{trade}"
+    puts "Food: #{food}"
+    puts "Production: #{production}"
+  end
 end
 
 class City
