@@ -9,9 +9,11 @@ london.resources << Field.new
 resources = london.turn
 puts "turn 1"
 resources.print
+puts "You have #{london.gold_reserves} gold"
 
 london.resources << Field.new
 
 resources = london.turn
 puts "turn 2"
 resources.print
+puts "You have #{london.gold_reserves} gold"
