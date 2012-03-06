@@ -16,10 +16,11 @@ class Resources
 end
 
 class City
-  attr_reader :resources
+  attr_reader :resources, :gold_reserves
 
   def initialize
     @resources = []
+    @gold_reserves = 0
   end
   
   def turn
@@ -31,6 +32,8 @@ class City
       resource.production += city_resource.production if city_resource.respond_to? :production
       resource.trade += city_resource.trade if city_resource.respond_to? :trade
     end
+
+    @gold_reserves += resource.gold
 
     resource
   end

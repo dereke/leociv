@@ -31,4 +31,20 @@ describe City do
       @resources.trade.should == 8
     end
   end
+
+  context "gold_reserves" do
+    it "adds gold each turn" do
+      mountain = mock('Mountain')
+      mountain.stub(:gold).and_return(2)
+
+      london = City.new
+      london.resources << mountain
+
+      london.turn
+      london.gold_reserves.should == 2
+
+      london.turn
+      london.gold_reserves.should == 4
+    end
+  end
 end
