@@ -47,4 +47,16 @@ describe City do
       london.gold_reserves.should == 4
     end
   end
+
+  context "food_per_turn" do
+    it "calculates food available for turn" do
+      field = mock('Field')
+      field.stub(:food).and_return(10)
+
+      city = City.new
+      city.resources << field
+
+      city.food_per_turn.should == 10
+    end
+  end
 end

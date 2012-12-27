@@ -1,3 +1,4 @@
+require_relative 'population'
 class Resources
   attr_accessor :food, :gold, :production, :trade
   def initialize
@@ -16,11 +17,22 @@ class Resources
 end
 
 class City
-  attr_reader :resources, :gold_reserves
+  attr_reader :population,   :resources, :gold_reserves
 
   def initialize
     @resources = []
     @gold_reserves = 0
+    @population = Population.new self
+  end
+
+  def food_per_turn
+    food = 0
+
+    resources.each do |city_resource|
+      food += city_resource.food if city_resource.respond_to? :food
+    end
+
+    food
   end
   
   def turn
@@ -35,6 +47,7 @@ class City
 
     @gold_reserves += resource.gold
 
+    @population.turn
     resource
   end
 end

@@ -8,6 +8,7 @@ london.resources << Field.new
 
 resources = london.turn
 puts "turn 1"
+puts "Population #{london.population.current}"
 resources.print
 puts "You have #{london.gold_reserves} gold"
 
@@ -15,5 +16,11 @@ london.resources << Field.new
 
 resources = london.turn
 puts "turn 2"
+puts "Population #{london.population.current}"
 resources.print
 puts "You have #{london.gold_reserves} gold"
+
+20.times.each do
+  london.turn
+  puts "Population #{london.population.current}"
+end
