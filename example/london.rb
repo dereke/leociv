@@ -20,7 +20,7 @@ puts "Population #{london.population.current}"
 resources.print
 puts "You have #{london.gold_reserves} gold"
 
-20.times.each do
+120.times.each do
   london.turn
   puts "Population #{london.population.current}"
 end

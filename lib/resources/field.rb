@@ -1,9 +1,9 @@
 class Field
   def food
-    40
+    4
   end
 
   def trade
-    39
+    3
   end
 end

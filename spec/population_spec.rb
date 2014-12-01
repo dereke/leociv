@@ -43,7 +43,24 @@ describe Population do
         11.times.each do
           population.turn
         end
+        population.current.should == 13
+      end
+
+      it "only increases the population to the amount it can support" do
+        city = mock('City')
+        city.stub(:food_per_turn).and_return(1)
+
+        population = Population.new city
+        population.turn
+        population.current.should == 10
+
+        city.stub(:food_per_turn).and_return(2)
+
+        1000.times.each do
+          population.turn
+        end
         population.current.should == 20
+
       end
     end
   end
